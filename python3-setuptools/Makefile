@@ -35,16 +35,16 @@ define Package/python3-setuptools/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,\
+	$(call Build/Compile/Py3Mod,,\
 		install --prefix="$(PKG_INSTALL_DIR)/usr" \
 	)
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(PYTHON_LIB_DIR)
+	$(INSTALL_DIR) $(STAGING_DIR)$(PYTHON_PKG_DIR)
 	$(CP) \
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
-		$(PYTHON_LIB_DIR)
+		$(STAGING_DIR)$(PYTHON_PKG_DIR)
 endef
 
 define Py3Package/python3-setuptools/install
