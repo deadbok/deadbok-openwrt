@@ -48,6 +48,11 @@ define Build/InstallDev
 		$(STAGING_DIR)$(PYTHON_PKG_DIR)
 endef
 
+define Py3Package/python3-Jinja2/filespec
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/Jinja2-2.7.3-py3.4.egg
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/MarkupSafe-0.23-py3.4-linux2.egg
+endef
+
 #define Py3Package/python3-Jinja2/install
 #	$(INSTALL_DIR) $(1)/usr/bin
 #	$(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/

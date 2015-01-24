@@ -48,6 +48,12 @@ define Build/InstallDev
 		$(STAGING_DIR)$(PYTHON_PKG_DIR)
 endef
 
+define Py3Package/python3-Markdown/filespec
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/markdown
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/Markdown-2.5.2-py3.4.egg-info
++|/usr/bin/markdown_py
+endef
+
 define Py3Package/python3-Markdown/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
