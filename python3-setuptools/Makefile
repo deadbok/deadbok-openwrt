@@ -52,7 +52,7 @@ define Build/InstallDev
 endef
 
 
-define Py3Package/python3/filespec
+define Py3Package/python3-setuptools/filespec
 +|/usr/lib/python$(PYTHON_VERSION)/site-packages/easy_install.pth
 +|/usr/lib/python$(PYTHON_VERSION)/site-packages/setuptools.pth
 +|/usr/lib/python$(PYTHON_VERSION)/site-packages/setuptools-11.3.1-py3.4.egg
