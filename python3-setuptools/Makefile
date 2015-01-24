@@ -41,10 +41,25 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(STAGING_DIR)$(PYTHON_PKG_DIR)
+	$(INSTALL_DIR) $(PYTHON3_LIB_DIR)
 	$(CP) \
 		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
-		$(STAGING_DIR)$(PYTHON_PKG_DIR)
+		$(PYTHON3_LIB_DIR)
+	$(INSTALL_DIR) $(HOST_PYTHON3_LIB_DIR)
+	$(CP) \
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(HOST_PYTHON3_LIB_DIR)
+endef
+
+
+define Py3Package/python3/filespec
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/easy_install.pth
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/setuptools.pth
++|/usr/lib/python$(PYTHON_VERSION)/site-packages/setuptools-11.3.1-py3.4.egg
++|/usr/bin/easy_install
++|/usr/bin/easy_install-$(PYTHON_VERSION)
+#Include config-$(PYTHON_VERSION) from the python3 package to satisfy setuptools
++|/usr/lib/python$(PYTHON_VERSION)/config-$(PYTHON_VERSION)
 endef
 
 define Py3Package/python3-setuptools/install
