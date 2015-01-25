@@ -49,8 +49,8 @@ define Build/InstallDev
 endef
 
 define Py3Package/python3-Markdown/filespec
-+|/usr/lib/python$(PYTHON_VERSION)/site-packages/markdown
-+|/usr/lib/python$(PYTHON_VERSION)/site-packages/Markdown-2.5.2-py3.4.egg-info
++|/usr/lib/python$(PYTHON3_VERSION)/site-packages/markdown
++|/usr/lib/python$(PYTHON3_VERSION)/site-packages/Markdown-2.5.2-py3.4.egg-info
 +|/usr/bin/markdown_py
 endef
 

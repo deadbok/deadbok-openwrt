@@ -49,8 +49,8 @@ define Build/InstallDev
 endef
 
 define Py3Package/python3-Jinja2/filespec
-+|/usr/lib/python$(PYTHON_VERSION)/site-packages/Jinja2-2.7.3-py3.4.egg
-+|/usr/lib/python$(PYTHON_VERSION)/site-packages/MarkupSafe-0.23-py3.4-linux2.egg
++|/usr/lib/python$(PYTHON3_VERSION)/site-packages/Jinja2-2.7.3-py3.4.egg
++|/usr/lib/python$(PYTHON3_VERSION)/site-packages/MarkupSafe-0.23-py3.4-linux2.egg
 endef
 
 #define Py3Package/python3-Jinja2/install
