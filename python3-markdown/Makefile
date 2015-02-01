@@ -36,8 +36,10 @@ define Package/python3-Markdown/description
 endef
 
 define Build/Compile
+	export _python_sysroot="$(STAGING_DIR)";
 	$(call Build/Compile/Py3Mod,,\
-		install --prefix="$(PKG_INSTALL_DIR)/usr" \
+		install --prefix="$(PKG_INSTALL_DIR)/usr", \
+		_python_sysroot="$(STAGING_DIR)" \
 	)
 endef
 
