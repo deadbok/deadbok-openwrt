@@ -26,7 +26,7 @@ define Package/python3-Jinja2
 	CATEGORY:=Languages
 	TITLE:=A small template engine written in pure python.
 	URL:=http://jinja.pocoo.org/
-	DEPENDS:=+python3 +python3-setuptools
+	DEPENDS:=+python3
 endef
 
 define Package/python3-Jinja2/description
