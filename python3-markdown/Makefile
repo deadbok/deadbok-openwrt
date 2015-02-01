@@ -36,7 +36,6 @@ define Package/python3-Markdown/description
 endef
 
 define Build/Compile
-	export _python_sysroot="$(STAGING_DIR)";
 	$(call Build/Compile/Py3Mod,,\
 		install --prefix="$(PKG_INSTALL_DIR)/usr", \
 		_python_sysroot="$(STAGING_DIR)" \
@@ -59,6 +58,7 @@ endef
 define Py3Package/python3-Markdown/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
+	sed 's/env python/env python3/g' $(PKG_INSTALL_DIR)/usr/bin/markdown_py > $(1)/usr/bin/markdown_py
 endef
 
 $(eval $(call Py3Package,python3-Markdown))
