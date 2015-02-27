@@ -58,8 +58,6 @@ define Py3Package/python3-setuptools/filespec
 +|/usr/lib/python$(PYTHON3_VERSION)/site-packages/setuptools-11.3.1-py3.4.egg
 +|/usr/bin/easy_install
 +|/usr/bin/easy_install-$(PYTHON3_VERSION)
-#Include config-$(PYTHON_VERSION) from the python3 package to satisfy setuptools
-#+|/usr/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)
 endef
 
 define Py3Package/python3-setuptools/install
