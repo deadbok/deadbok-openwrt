@@ -24,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/webalizer
 	SECTION:=net
 	CATEGORY:=Network
-	SUBMENU:=Web Servers/Proxies
+	SUBMENU:=Web log analyzer
 	TITLE:=The Webalizer
 	URL:=/http://www.webalizer.org/
 	DEPENDS:= +libgd +libpng +libdb47
