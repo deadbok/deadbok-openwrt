@@ -1,0 +1,75 @@
+diff -ru goaccess-0.8.5.old/error.c goaccess-0.8.5/error.c
+--- goaccess-0.8.5.old/error.c	2014-09-14 06:01:08.000000000 +0200
++++ goaccess-0.8.5/error.c	2015-02-27 11:34:53.312288861 +0100
+@@ -36,9 +36,11 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <signal.h>
++/* Removed for OpenWRT build
+ #if defined(__GLIBC__)
+ #include <execinfo.h>
+ #endif
++*/
+ 
+ #include "error.h"
+ #include "commons.h"
+@@ -62,6 +64,7 @@
+     fclose (log_file);
+ }
+ 
++/* Removed for OpenWRT build
+ #if defined(__GLIBC__)
+ void
+ sigsegv_handler (int sig)
+@@ -87,6 +90,7 @@
+   exit (EXIT_FAILURE);
+ }
+ #endif
++* */
+ 
+ #pragma GCC diagnostic ignored "-Wformat-nonliteral"
+ void
+diff -ru goaccess-0.8.5.old/error.h goaccess-0.8.5/error.h
+--- goaccess-0.8.5.old/error.h	2014-09-14 06:01:08.000000000 +0200
++++ goaccess-0.8.5/error.h	2015-02-27 11:35:38.434724753 +0100
+@@ -55,8 +55,10 @@
+ void dbg_log_close (void);
+ void dbg_log_open (const char *file);
+ 
++/* Removed for OpenWRT build
+ #if defined(__GLIBC__)
+ void sigsegv_handler (int sig);
+ #endif
++*/
+ 
+ #endif
+diff -ru goaccess-0.8.5.old/goaccess.c goaccess-0.8.5/goaccess.c
+--- goaccess-0.8.5.old/goaccess.c	2014-09-14 06:01:08.000000000 +0200
++++ goaccess-0.8.5/goaccess.c	2015-02-27 11:41:09.350587735 +0100
+@@ -746,6 +746,7 @@
+     cmd_help ();
+ }
+ 
++/* Removed for OpenWRT build
+ #if defined(__GLIBC__)
+ static void
+ setup_signal_handlers (void)
+@@ -758,15 +759,18 @@
+   sigaction (SIGSEGV, &act, NULL);
+ }
+ #endif
++*/
+ 
+ int
+ main (int argc, char **argv)
+ {
+   int quit = 0;
+ 
++/* Removed for OpenWRT build
+ #if defined(__GLIBC__)
+   setup_signal_handlers ();
+ #endif
++*/
+ 
+   /* command line/config options */
+   verify_global_config (argc, argv);
