@@ -7,7 +7,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=python3-Markdown
+PKG_NAME:=python3-markdown
 PKG_VERSION:=2.5.2
 PKG_RELEASE:=1
 
@@ -20,7 +20,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/Markdown-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python3-package.mk)
 
-define Package/python3-Markdown
+define Package/python3-markdown
 	SUBMENU:=Python
 	SECTION:=lang
 	CATEGORY:=Languages
@@ -29,7 +29,7 @@ define Package/python3-Markdown
 	DEPENDS:=+python3
 endef
 
-define Package/python3-Markdown/description
+define Package/python3-markdown/description
 	This is a Python implementation of John Gruber's Markdown.
 	It is almost completely compliant with the reference 
 	implementation, though there are a few known issues.
@@ -49,18 +49,18 @@ define Build/InstallDev
 		$(STAGING_DIR)$(PYTHON_PKG_DIR)
 endef
 
-define Py3Package/python3-Markdown/filespec
+define Py3Package/python3-markdown/filespec
 +|/usr/lib/python$(PYTHON3_VERSION)/site-packages/markdown
 +|/usr/lib/python$(PYTHON3_VERSION)/site-packages/Markdown-2.5.2-py3.4.egg-info
 +|/usr/bin/markdown_py
 endef
 
-define Py3Package/python3-Markdown/install
+define Py3Package/python3-markdown/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
 	sed 's/env python/env python3/g' $(PKG_INSTALL_DIR)/usr/bin/markdown_py > $(1)/usr/bin/markdown_py
 endef
 
-$(eval $(call Py3Package,python3-Markdown))
-$(eval $(call BuildPackage,python3-Markdown))
+$(eval $(call Py3Package,python3-markdown))
+$(eval $(call BuildPackage,python3-markdown))
 
